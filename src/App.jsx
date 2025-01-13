@@ -34,6 +34,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import DefaultLayout from "./layouts/DefaultLayout";
 import IndexMovie from "./pages/movies/IndexMovie";
+import ShowMovie from "./pages/movies/ShowMovie";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           </Route>
           <Route path="movies">
             <Route index element={<IndexMovie />}></Route>
+            <Route path=":id" element={<ShowMovie />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
