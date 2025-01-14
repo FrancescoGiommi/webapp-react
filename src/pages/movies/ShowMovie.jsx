@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-
 import { useParams, Link } from "react-router-dom";
-
+import ReviewsList from "../../components/reviews/ReviewsList";
 export default function ShowMovie() {
   const { id: movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -11,8 +10,8 @@ export default function ShowMovie() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.movie);
         setMovie(data.movie);
+        console.log(movie.image);
       });
   }, []);
 
@@ -40,6 +39,9 @@ export default function ShowMovie() {
                 <p className="card-text">{movie.abstract}</p>
               </div>
             </div>
+          </div>
+          <div className="my-5">
+            <ReviewsList reviews={movie.reviews}></ReviewsList>
           </div>
         </div>
       )}
