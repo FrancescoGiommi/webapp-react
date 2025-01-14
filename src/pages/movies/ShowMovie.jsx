@@ -36,10 +36,14 @@ export default function ShowMovie() {
                 />
               </div>
               <div className="col-9">
-                <h5 class=" mb-2 text-body-secondary">{movie.director}</h5>
-                <p className="card-text">{movie.genre}</p>
-                <p className="card-text">{movie.release_year}</p>
-                <p className="card-text">{movie.abstract}</p>
+                <h5 class=" mb-2 text-body-secondary">
+                  Regista: {movie.director}
+                </h5>
+                <p className="card-text">Genere: {movie.genre}</p>
+                <p className="card-text">
+                  Anno di uscita: {movie.release_year}
+                </p>
+                <p className="card-text">Trama: {movie.abstract}</p>
               </div>
             </div>
           </div>
