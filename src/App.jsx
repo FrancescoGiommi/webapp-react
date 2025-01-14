@@ -44,10 +44,11 @@ function App() {
           <Route element={<DefaultLayout />} path="/">
             <Route index element={<HomePage />}></Route>
             <Route path="about" element={<AboutPage />}></Route>
-          </Route>
-          <Route path="movies">
-            <Route index element={<IndexMovie />}></Route>
-            <Route path=":id" element={<ShowMovie />}></Route>
+
+            <Route path="movies">
+              <Route index element={<IndexMovie />}></Route>
+              <Route path=":id" element={<ShowMovie />}></Route>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

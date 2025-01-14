@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            React Movie
+            Streaming Boolity
           </Link>
           <button
             className="navbar-toggler"
@@ -19,7 +19,7 @@ export default function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="collapse navbar-collapse flex-grow-0" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/about">

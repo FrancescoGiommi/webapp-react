@@ -11,7 +11,6 @@ export default function ShowMovie() {
       .then((res) => res.json())
       .then((data) => {
         setMovie(data.movie);
-        console.log(movie.image);
       });
   }, []);
 
@@ -30,7 +29,11 @@ export default function ShowMovie() {
           <div className="d-flex justify-content-between align-items-center">
             <div className="row">
               <div className="col-3">
-                <img src={movie.image} className="img-fluid" />
+                <img
+                  src={movie.image}
+                  className="img-fluid"
+                  alt={movie.title}
+                />
               </div>
               <div className="col-9">
                 <h5 class=" mb-2 text-body-secondary">{movie.director}</h5>
