@@ -24,7 +24,7 @@ export default function IndexMovie() {
   return (
     <>
       <div className="container pt-5 ">
-        <h1>Movies List</h1>
+        <h1 className="pt-4">Movies List</h1>
         <div className="row row-col-5 d-flex gap-3">
           {movies.map((movie) => (
             <div className="col" key={movie.id}>
