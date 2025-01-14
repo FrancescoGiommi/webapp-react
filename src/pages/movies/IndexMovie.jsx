@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Card from "../../components/Card";
 
 export default function IndexMovie() {
   const [movies, setMovies] = useState([]);
@@ -15,15 +16,22 @@ export default function IndexMovie() {
 
   return (
     <>
-      <div className="container pt-5">
+      <div className="container pt-5 ">
         <h1>Movies List</h1>
-        <ul>
+        <div className="row row-cols-5 d-flex gap-3">
           {movies.map((movie) => (
-            <li key={movie.id}>
-              <Link to={"/movies/" + movie.id}>{movie.title}</Link>
-            </li>
+            <div className="col" key={movie.id}>
+              <Card
+                key={movie.id}
+                image={movie.image}
+                title={movie.title}
+                subtitle={movie.director}
+                genre={movie.genre}
+                link={{ to: "/movies/" + movie.id, text: "Vedi dettagli" }}
+              />
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </>
   );

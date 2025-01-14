@@ -21,7 +21,17 @@ export default function ShowMovie() {
       <div className="container pt-5">
         <h1>Movie Detail</h1>
 
-        {movie && <h2>{movie.title}</h2>}
+        {movie.map((movie) => (
+          <div key={movie.id} className="card">
+            <img src={movie.image} className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h2>{movie.title}</h2>
+              <p className="card-text">{movie.director}</p>
+              <p className="card-text">{movie.genre}</p>
+              <p className="card-text">{movie.genre}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
