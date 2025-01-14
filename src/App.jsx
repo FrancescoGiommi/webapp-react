@@ -35,6 +35,7 @@ import AboutPage from "./pages/AboutPage";
 import DefaultLayout from "./layouts/DefaultLayout";
 import IndexMovie from "./pages/movies/IndexMovie";
 import ShowMovie from "./pages/movies/ShowMovie";
+import NotFound from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -46,8 +47,12 @@ function App() {
             <Route path="about" element={<AboutPage />}></Route>
 
             <Route path="movies">
+              {/* Index Page */}
               <Route index element={<IndexMovie />}></Route>
+              {/* Show Page */}
               <Route path=":id" element={<ShowMovie />}></Route>
+              {/* 404 */}
+              <Route path="*" element={<NotFound />}></Route>
             </Route>
           </Route>
         </Routes>

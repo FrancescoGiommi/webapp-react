@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
 
 export default function IndexMovie() {
@@ -8,7 +8,13 @@ export default function IndexMovie() {
   useEffect(() => {
     const url = import.meta.env.VITE_BACKEND_URL + "api/movies/";
     fetch(url)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 404) {
+          const navigate = useNavigate();
+          navigate("/NotFound");
+        }
+        return res.json();
+      })
       .then((data) => {
         setMovies(data.movies);
         console.log(data.movies);
