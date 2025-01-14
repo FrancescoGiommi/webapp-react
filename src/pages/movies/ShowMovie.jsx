@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function ShowMovie() {
   const { id: movieId } = useParams();
@@ -18,21 +18,31 @@ export default function ShowMovie() {
 
   return (
     <>
-      <div className="container pt-5">
-        <h1>Movie Detail</h1>
-
-        {movie.map((movie) => (
-          <div key={movie.id} className="card">
-            <img src={movie.image} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h2>{movie.title}</h2>
-              <p className="card-text">{movie.director}</p>
-              <p className="card-text">{movie.genre}</p>
-              <p className="card-text">{movie.genre}</p>
+      {movie && (
+        <div className="container pt-5">
+          <div className="d-flex justify-content-between">
+            <h1>{movie.title}</h1>
+            <div>
+              <Link className="btn btn-primary mt-2" to={"/movies"}>
+                Torna alla lista
+              </Link>
             </div>
           </div>
-        ))}
-      </div>
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="row">
+              <div className="col-3">
+                <img src={movie.image} className="img-fluid" />
+              </div>
+              <div className="col-9">
+                <h5 class=" mb-2 text-body-secondary">{movie.director}</h5>
+                <p className="card-text">{movie.genre}</p>
+                <p className="card-text">{movie.release_year}</p>
+                <p className="card-text">{movie.abstract}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

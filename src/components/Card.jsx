@@ -4,7 +4,7 @@ export default function Card({ image, title, subtitle, genre, link }) {
   return (
     <>
       <div className="card h-100">
-        {image && <img src={image} className="card-img-top" alt="..." />}
+        {image && <img src={image} className="card-img-top" alt={title} />}
         <div className="card-body">
           {title && <h5 className="card-title">{title}</h5>}
           {subtitle && (
