@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReviewsList from "../../components/reviews/ReviewsList";
+import ReviewsForm from "../../components/reviews/ReviewsForm";
 export default function ShowMovie() {
   const { id: movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -47,6 +48,7 @@ export default function ShowMovie() {
               </div>
             </div>
           </div>
+          <ReviewsForm />
           <div className="my-5">
             <ReviewsList reviews={movie.reviews}></ReviewsList>
           </div>
