@@ -4,6 +4,7 @@ export default function ReviewsItem({ review }) {
     for (let i = 0; i < 5; i++) {
       const star = (
         <i
+          key={i}
           className={`fa-${i < rating ? "solid" : "regular"}
       fa-star`}
         ></i>

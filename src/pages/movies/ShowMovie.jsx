@@ -48,7 +48,8 @@ export default function ShowMovie() {
               </div>
             </div>
           </div>
-          <ReviewsForm />
+          <hr />
+          <ReviewsForm movieId={movieId} />
           <div className="my-5">
             <ReviewsList reviews={movie.reviews}></ReviewsList>
           </div>
