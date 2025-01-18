@@ -8,13 +8,7 @@ export default function IndexMovie() {
   useEffect(() => {
     const url = import.meta.env.VITE_BACKEND_URL + "api/movies/";
     fetch(url)
-      .then((res) => {
-        if (res.status === 404) {
-          const navigate = useNavigate();
-          navigate("/NotFound");
-        }
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
         setMovies(data.movies);
         console.log(data.movies);

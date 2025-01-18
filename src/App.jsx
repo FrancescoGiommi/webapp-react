@@ -60,14 +60,14 @@ function App() {
           <Route element={<DefaultLayout />} path="/">
             <Route index element={<HomePage />}></Route>
             <Route path="about" element={<AboutPage />}></Route>
+            {/* 404 */}
+            <Route path="*" element={<NotFound />}></Route>
 
             <Route path="movies">
               {/* Index Page */}
               <Route index element={<IndexMovie />}></Route>
               {/* Show Page */}
               <Route path=":id" element={<ShowMovie />}></Route>
-              {/* 404 */}
-              <Route path="*" element={<NotFound />}></Route>
             </Route>
           </Route>
         </Routes>

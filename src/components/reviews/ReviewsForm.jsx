@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ReviewsForm({ movieId }) {
+export default function ReviewsForm({ movieId, updateReviews }) {
   const formReviewData = {
     name: "",
     vote: "",
@@ -13,7 +13,7 @@ export default function ReviewsForm({ movieId }) {
     e.preventDefault();
     console.log(reviewForm);
     if (validateForm(reviewForm)) {
-      const reviewUrl = `http://localhost/3000/api/movies/${movieId}/reviews`;
+      const reviewUrl = `http://localhost:3000/api/movies/${movieId}/reviews`;
       fetch(reviewUrl, {
         method: "POST",
         headers: {
@@ -23,14 +23,21 @@ export default function ReviewsForm({ movieId }) {
       })
         .then((res) => res.json())
         .then((data) => {
-          data;
+          const listReviewsUrl = `http://localhost:3000/api/movies/${movieId}/reviews`;
+          fetch(listReviewsUrl)
+            .then((res) => res.json())
+            .then((data) => {
+              updateReviews(data.reviews);
+            });
+
+          setReviewForm(formReviewData);
         });
     }
   };
 
   const validateForm = ({ name, vote, text }) => {
     if (!name) return false;
-    if (!vote || vote < 1 || vote > 5) return false;
+    if (isNaN(parseInt(vote)) || vote < 1 || vote > 5) return false;
     if (!text) return false;
     return true;
   };
