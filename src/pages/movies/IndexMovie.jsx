@@ -11,7 +11,6 @@ export default function IndexMovie() {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.movies);
-        console.log(data.movies);
       });
   }, []);
 
