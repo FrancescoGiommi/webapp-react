@@ -9,10 +9,12 @@ export default function ReviewsForm({ movieId, updateReviews }) {
 
   const [reviewForm, setReviewForm] = useState(formReviewData);
 
+  /* Funzione per il submit del form */
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     console.log(reviewForm);
     if (validateForm(reviewForm)) {
+      /* Invio la recensione */
       const reviewUrl = `http://localhost:3000/api/movies/${movieId}/reviews`;
       fetch(reviewUrl, {
         method: "POST",
@@ -35,12 +37,15 @@ export default function ReviewsForm({ movieId, updateReviews }) {
     }
   };
 
+  /* Validazione del form */
   const validateForm = ({ name, vote, text }) => {
     if (!name) return false;
     if (isNaN(parseInt(vote)) || vote < 1 || vote > 5) return false;
     if (!text) return false;
     return true;
   };
+
+  /* Aggiorno il valore degli input */
   const handleFormChange = (e) => {
     setReviewForm({
       ...reviewForm,
@@ -92,6 +97,7 @@ export default function ReviewsForm({ movieId, updateReviews }) {
         />
       </div>
       <div className="col-3">
+        {/* Bottone per inviare la recensione */}
         <button className="btn btn-primary">Invia</button>
       </div>
     </form>
